@@ -1,8 +1,8 @@
 package lumo
 
 import (
-	"time"
 	"fmt"
+	"time"
 )
 
 // Foo is my foo function
