@@ -6,9 +6,25 @@ import (
 
 	"github.com/rg-devel/lumo"
 	"github.com/urfave/cli"
+	log "github.com/Sirupsen/logrus"
 )
 
+func init() {
+	log.SetFormatter(&log.TextFormatter{
+		TimestampFormat: "2006-01-02T15:04:05.000",
+		FullTimestamp: true,
+	})
+}
+
 func main() {
+
+	log.SetOutput(os.Stdout)
+
+	log.WithFields(log.Fields{
+		"string field": "string value",
+		"number": 1,
+	}).Info("starting lumo")
+	log.Warn("warning message without fields")
 
 	app := cli.NewApp()
 
